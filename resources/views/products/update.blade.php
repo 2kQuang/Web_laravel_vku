@@ -22,7 +22,7 @@
                             <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('New_Image') }}</label>
                             <div class="col-md-6">
                                 <input id="avatar" type="file" name="image" accept="image/*"
-                                    value="{{ $product['avatar'] }}" required>
+                                    value="{{asset($product['image'])}}" required>
                             </div>
                         </div>
 

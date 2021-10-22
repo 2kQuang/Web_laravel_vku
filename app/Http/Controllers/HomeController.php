@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,7 +30,9 @@ class HomeController extends Controller
             return view('admin.index');
         }
         if (Auth::user()->role_id == '3') {
-            return view('user.home');
+            $categories = Categories::all();
+            $products = Product::orderBy('id','Desc')->paginate(12);
+            return response()->view('user.home',['products'=>$products,'categories'=>$categories]);
         }
         else{
             Auth::logout();

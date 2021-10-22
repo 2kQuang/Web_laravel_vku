@@ -49,6 +49,9 @@
                             </li>
                         </ul>
                     </div> -->
+                    <div>
+                        <img src="{{asset('images/logo/logo.png')}}" width="70px" alt="">
+                    </div>
                 </div>
             </nav>
         @yield('content')

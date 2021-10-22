@@ -55,4 +55,5 @@
         @endforelse
     </tbody>
 </table>
+{{$employees->links()}}
 @endsection

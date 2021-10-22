@@ -54,4 +54,5 @@
         @endforelse
     </tbody>
 </table>
+{{$maps->links()}}
 @endsection

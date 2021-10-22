@@ -24,6 +24,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+       
     }
 
     /**
@@ -65,13 +66,9 @@ class ProductController extends Controller
             $path = $path . $image->getClientOriginalName();
             $Maps = new Product;
             $Maps->image = $path;
-
             $Maps->name_product = $request->input('name_product');
             $Maps->price =$request->input('price');
             $Maps->content = $request->input('content');
-
-
-
             $Maps->id_categori = $request->input('categori');
             $Maps->id_address = $request->input('address');
             $Maps->id_user = $request->input('role');
@@ -87,9 +84,22 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id,$id_address,$id_categori)
     {
-        //
+        $products = Product::all();
+        $show = Product::find($id);
+        $product = Product::where('id_categori','=',$id_categori)->select('*')->get();
+        $categories = Categories::where('id','=',$id_categori)->select('*')->first();
+        $map = Maps::where('id','=',$id_address)->select('*')->first();
+      
+
+        return response()->view('user.show',[
+        'products'=>$products,
+        'show'=>$show,
+        'categories'=>$categories,
+        'map'=>$map,
+        'product'=>$product
+    ]);
     }
 
     /**

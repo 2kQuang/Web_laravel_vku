@@ -68,6 +68,11 @@
                 <i class="fas fa-box"></i> Products
             </a>
         </li>
+        <li>
+            <a href="{{route('feedback.admin')}}">
+                <i class="fas fa-box"></i> Feedback
+            </a>
+        </li>
     </ul>
 
 

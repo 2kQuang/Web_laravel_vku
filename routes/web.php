@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\MapsController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
@@ -60,3 +61,7 @@ Route::get('products/delete/{id}',[ProductController::class,'destroy'])->name('p
 
 
 // User
+Route::get('show_product/{id}/{id_address}/{id_categori}',[ProductController::class,'show'])->name('show_product');
+// feedback
+Route::get('feedback',[FeedbackController::class,'index'])->name('feedback.admin');
+Route::post('feedback',[FeedbackController::class,'store'])->name('feedback');
