@@ -13,7 +13,7 @@ class EmployeeController extends Controller
 
     public function admin()
     {
-        $employees = User::all();
+        $employees = User::paginate(5);
         return response()->view('employee.admin',['employees'=>$employees]);
     }
     
@@ -94,7 +94,8 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return response()->view('user.profile',['user'=>$user]);
     }
 
     /**

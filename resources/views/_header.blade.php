@@ -29,12 +29,18 @@
                     <li><a class="page-scroll" href="#partners-section">Partners</a></li>
                     <li><a class="page-scroll" href="#contact-section">Contact</a></li>
                     <li style="display: flex;">
+
                         <div class="user mt-1 ml-5">
-                            <img src="{{asset(auth()->user()->avatar)}}">
+                            <a href="{{route('profile.show',['id'=>auth()->user()->id])}}" style="text-decoration: none">
+                                <img src="{{asset(auth()->user()->avatar)}}">
+                            </a>
                         </div>
                         <div class="mt-3 ml-3 page-scroll" style="color: white;">
-                            <h3>{{Auth::user()->name}}</h3>
+                            <a href="{{route('profile.show',['id'=>auth()->user()->id])}}" style="text-decoration: none">
+                                <h3>{{Auth::user()->name}}</h3>
+                            </a>
                         </div>
+
                         <ul class="list-unstyled mt-2 ml-3">
                             <li>
                                 <form action="{{ route('logout') }}" method="POST">

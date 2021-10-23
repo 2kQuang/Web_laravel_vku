@@ -31,7 +31,7 @@ class HomeController extends Controller
         }
         if (Auth::user()->role_id == '3') {
             $categories = Categories::all();
-            $products = Product::orderBy('id','Desc')->paginate(12);
+            $products = Product::orderBy('id','Desc')->get();
             return response()->view('user.home',['products'=>$products,'categories'=>$categories]);
         }
         else{

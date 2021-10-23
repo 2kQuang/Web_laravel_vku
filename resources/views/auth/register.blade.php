@@ -89,10 +89,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
+                            <label for="avatar" class="col-md-4 col-form-label text-md-right text-light">{{ __('Avatar') }}</label>
 
                             <div class="col-md-6">
-                                <input id="avatar" type="file" accept="image/*"  name="avatar" >
+                                <input id="avatar" class="text-light" type="file" accept="image/*"  name="avatar" >
 
                             </div>
                         </div>

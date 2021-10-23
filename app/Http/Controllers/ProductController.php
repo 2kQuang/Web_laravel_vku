@@ -86,7 +86,7 @@ class ProductController extends Controller
      */
     public function show($id,$id_address,$id_categori)
     {
-        $products = Product::all();
+        $products = Product::paginate(6);
         $show = Product::find($id);
         $product = Product::where('id_categori','=',$id_categori)->select('*')->get();
         $categories = Categories::where('id','=',$id_categori)->select('*')->first();

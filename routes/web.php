@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -62,6 +61,7 @@ Route::get('products/delete/{id}',[ProductController::class,'destroy'])->name('p
 
 // User
 Route::get('show_product/{id}/{id_address}/{id_categori}',[ProductController::class,'show'])->name('show_product');
+Route::get('profile_user/{id}',[EmployeeController::class,'show'])->name('profile.show');
 // feedback
 Route::get('feedback',[FeedbackController::class,'index'])->name('feedback.admin');
 Route::post('feedback',[FeedbackController::class,'store'])->name('feedback');

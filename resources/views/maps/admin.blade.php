@@ -50,7 +50,6 @@
                 </ul>
             </td>
         </tr>
-
         @endforelse
     </tbody>
 </table>

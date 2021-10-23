@@ -12,13 +12,13 @@
     <!-- End page header-->
     <div class="container">
         <div id="owl-partners" class="owl-carousel">
-            <img src="asset/img/partners/1.png" alt="img">
-            <img src="asset/img/partners/2.png" alt="img">
-            <img src="asset/img/partners/3.png" alt="img">
-            <img src="asset/img/partners/4.png" alt="img">
-            <img src="asset/img/partners/5.png" alt="img">
-            <img src="asset/img/partners/6.png" alt="img">
-            <img src="asset/img/partners/7.png" alt="img">
+            <img src="{{asset('asset/img/partners/1.png')}}" alt="img">
+            <img src="{{asset('asset/img/partners/2.png')}}" alt="img">
+            <img src="{{asset('asset/img/partners/3.png')}}" alt="img">
+            <img src="{{asset('asset/img/partners/4.png')}}" alt="img">
+            <img src="{{asset('asset/img/partners/5.png')}}" alt="img">
+            <img src="{{asset('asset/img/partners/6.png')}}" alt="img">
+            <img src="{{asset('asset/img/partners/7.png')}}" alt="img">
         </div>
     </div>
 </section>
