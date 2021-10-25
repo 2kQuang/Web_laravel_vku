@@ -28,7 +28,7 @@
 <body data-spy="scroll" data-target="#main-navbar">
     <div class="page-loader"></div>
     <div class="body">
-        @include('_header')
+        @include('_header_1')
         @yield('content')
         @include('_footer')
     </div>

@@ -5,7 +5,7 @@
 $('.page-scroll').bind('click', function(event) {
     var $anchor = $(this);
     $('html, body').stop().animate({
-        scrollTop: $($anchor.attr('href')).offset().top -64
+        scrollTop: $($anchor.attr('href')).offset().top - 64
     }, 1500, 'easeInOutExpo');
     event.preventDefault();
 });
@@ -19,26 +19,25 @@ $('.page-scroll').bind('click', function(event) {
 var cbpAnimatedHeader = (function() {
 
     var docElem = document.documentElement,
-        header = document.querySelector( '.navbar-fixed-top' ),
+        header = document.querySelector('.navbar-fixed-top'),
         didScroll = false,
         changeHeaderOn = 10;
 
     function init() {
-        window.addEventListener( 'scroll', function( event ) {
-            if( !didScroll ) {
+        window.addEventListener('scroll', function(event) {
+            if (!didScroll) {
                 didScroll = true;
-                setTimeout( scrollPage, 250 );
+                setTimeout(scrollPage, 250);
             }
-        }, false );
+        }, false);
     }
 
     function scrollPage() {
         var sy = scrollY();
-        if ( sy >= changeHeaderOn ) {
-            classie.add( header, 'navbar-shrink' );
-        }
-        else {
-            classie.remove( header, 'navbar-shrink' );
+        if (sy >= changeHeaderOn) {
+            classie.add(header, 'navbar-shrink');
+        } else {
+            classie.remove(header, 'navbar-shrink');
         }
         didScroll = false;
     }
@@ -82,31 +81,31 @@ $(window).load(function() {
 
 // Intro text carousel
 $("#owl-intro-text").owlCarousel({
-    singleItem : true,
-    autoPlay : 6000,
-    stopOnHover : true,
-    navigation : false,
-    navigationText : false,
-    pagination : true
+    singleItem: true,
+    autoPlay: 6000,
+    stopOnHover: true,
+    navigation: false,
+    navigationText: false,
+    pagination: true
 })
 
 
 // Partner carousel
 $("#owl-partners").owlCarousel({
-    items : 4,
-    itemsDesktop : [1199,3],
-    itemsDesktopSmall : [980,2],
-    itemsTablet: [768,2],
-    autoPlay : 5000,
-    stopOnHover : true,
-    pagination : false
+    items: 4,
+    itemsDesktop: [1199, 3],
+    itemsDesktopSmall: [980, 2],
+    itemsTablet: [768, 2],
+    autoPlay: 5000,
+    stopOnHover: true,
+    pagination: false
 })
 
 // Testimonials carousel
 $("#owl-testimonial").owlCarousel({
-    singleItem : true,
-    pagination : true,
-    autoHeight : true
+    singleItem: true,
+    pagination: true,
+    autoHeight: true
 })
 
 
@@ -145,21 +144,21 @@ $('.counter').counterUp({
 // Isotop Package
 ////////////////////////////////////////////////////////////////////////////////////////////
 $(window).load(function() {
-$('.portfolio_menu ul li').click(function(){
-	$('.portfolio_menu ul li').removeClass('active_prot_menu');
-	$(this).addClass('active_prot_menu');
-});
+    $('.portfolio_menu ul li').click(function() {
+        $('.portfolio_menu ul li').removeClass('active_prot_menu');
+        $(this).addClass('active_prot_menu');
+    });
 
-var $container = $('#portfolio');
-$container.isotope({
-  itemSelector: '.col-sm-4',
-  layoutMode: 'fitRows'
-});
-$('#filters').on( 'click', 'a', function() {
-  var filterValue = $(this).attr('data-filter');
-  $container.isotope({ filter: filterValue });
-  return false;
-});
+    var $container = $('#portfolio');
+    $container.isotope({
+        itemSelector: '.col-sm-4',
+        layoutMode: 'fitRows'
+    });
+    $('#filters').on('click', 'a', function() {
+        var filterValue = $(this).attr('data-filter');
+        $container.isotope({ filter: filterValue });
+        return false;
+    });
 });
 
 
@@ -169,7 +168,7 @@ $('#filters').on( 'click', 'a', function() {
 /////////////////////////
 
 // Check to see if the window is top if not then display button
-$(window).scroll(function(){
+$(window).scroll(function() {
     if ($(this).scrollTop() > 100) {
         $('.scrolltotop').fadeIn();
     } else {
@@ -178,8 +177,8 @@ $(window).scroll(function(){
 });
 
 // Click event to scroll to top
-$('.scrolltotop').click(function(){
-    $('html, body').animate({scrollTop : 0}, 1500, 'easeInOutExpo');
+$('.scrolltotop').click(function() {
+    $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
     return false;
 });
 
@@ -189,8 +188,29 @@ $('.scrolltotop').click(function(){
 // Close mobile menu when click menu link (Bootstrap default menu)
 ////////////////////////////////////////////////////////////////////
 
-$(document).on('click','.navbar-collapse.in',function(e) {
-    if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+$(document).on('click', '.navbar-collapse.in', function(e) {
+    if ($(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle') {
         $(this).collapse('hide');
     }
 });
+
+var proQty = $('.pro-qty');
+proQty.prepend('<span class="dec qtybtn btn">-</span>');
+proQty.append('<span class="inc qtybtn btn">+</span>');
+proQty.on('click', '.qtybtn', function() {
+    var $button = $(this);
+    var oldValue = $button.parent().find('input').val();
+    if ($button.hasClass('inc')) {
+        var newVal = parseFloat(oldValue) + 1;
+    } else {
+        // Don't allow decrementing below zero
+        if (oldValue > 0) {
+            var newVal = parseFloat(oldValue) - 1;
+        } else {
+            newVal = 0;
+        }
+    }
+    $button.parent().find('input').val(newVal);
+});
+
+(jQuery);

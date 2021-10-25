@@ -9,9 +9,9 @@
                     <div class="page-header-wrapper">
                         <div class="container">
                             <div class="page-header text-center wow fadeInDown" data-wow-delay="0.4s">
-                                <h2>Our Works</h2>
+                                <h2>Order</h2>
                                 <div class="devider"></div>
-                                <p class="subtitle">What we are proud of</p>
+                                <p class="subtitle">What to eat now ?</p>
                             </div>
                         </div>
                     </div>

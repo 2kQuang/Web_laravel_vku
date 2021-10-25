@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    use HasApiTokens, HasFactory, Notifiable;
     use \Illuminate\Notifications\Notifiable;
     protected $table = "users";
     public $timestamps = false;

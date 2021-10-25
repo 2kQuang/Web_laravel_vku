@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FeedbackController;
@@ -65,3 +66,7 @@ Route::get('profile_user/{id}',[EmployeeController::class,'show'])->name('profil
 // feedback
 Route::get('feedback',[FeedbackController::class,'index'])->name('feedback.admin');
 Route::post('feedback',[FeedbackController::class,'store'])->name('feedback');
+
+// Cart 
+Route::post('cart/store',[CartController::class,'store'])->name('cart.store');
+Route::get('cart/delete/{id}',[CartController::class,'destroy'])->name('cart.delete');

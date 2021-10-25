@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
+use App\Models\Maps;
+use App\Models\Product;
 use App\Models\Role;
 use App\Models\User;
+use Facade\Ignition\Middleware\AddLogs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -94,8 +98,9 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
+        $carts = Cart::where('id_user','=',$id)->select('*')->get();
         $user = User::find($id);
-        return response()->view('user.profile',['user'=>$user]);
+        return response()->view('user.profile',['user'=>$user,'carts'=>$carts]);
     }
 
     /**

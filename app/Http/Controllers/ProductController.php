@@ -91,14 +91,13 @@ class ProductController extends Controller
         $product = Product::where('id_categori','=',$id_categori)->select('*')->get();
         $categories = Categories::where('id','=',$id_categori)->select('*')->first();
         $map = Maps::where('id','=',$id_address)->select('*')->first();
-      
 
         return response()->view('user.show',[
         'products'=>$products,
         'show'=>$show,
         'categories'=>$categories,
         'map'=>$map,
-        'product'=>$product
+        'product'=>$product,
     ]);
     }
 
@@ -160,6 +159,6 @@ class ProductController extends Controller
     public function destroy($id)
     {
         Product::where('id',$id)->delete();
-        return redirect()->action([ProductController::class,'admin']);
+        return redirect()->action([ProductController::class,'show']);
     }
 }

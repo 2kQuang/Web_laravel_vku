@@ -26,5 +26,4 @@
         @endforelse
     </tbody>
 </table>
-{{$feedbacks->links()}}
 @endsection

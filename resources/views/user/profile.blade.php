@@ -2,8 +2,8 @@
 @section('content')
 <div class="container">
     <div class="content bg-light" style="margin-top: 100px;">
-        <div class="container mt-5 mb-3">
-            <div class="m-3">
+        <div class="mt-5 mb-3">
+            <div class="m-5 p-4">
                 <h4>Profile</h4>
                 <hr>
             </div>
@@ -36,7 +36,7 @@
                                         <h6 class="mb-0">Email</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        {{$user['email']}}&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 
+                                        {{$user['email']}}&emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
                                         @if(Route::has('password.request'))
                                         <a href="{{ route('password.request') }}">
                                             Forgot Your Password ?
@@ -67,9 +67,49 @@
                         </div>
                     </div>
                 </div>
-
+            </div>
+            <div class="m-3">
+                <h4>Order</h4>
+                <hr>
+            </div>
+            <div class="p-4">
+                <table class="table table-bordered" style="text-align: center;">
+                    <thead>
+                        <tr class="bg-dark" style="color: white; text-align: center;">
+                            <th scope="col" style="text-align: center;">Image</th>
+                            <th scope="col" style="text-align: center;">Name</th>
+                            <th scope="col" style="text-align: center;">Price</th>
+                            <th scope="col" style="text-align: center;">Quantily</th>
+                            <th scope="col" style="text-align: center;">Total money</th>
+                            <th scope="col" style="text-align: center; width: 25%;">Setting</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($carts as $cart)
+                        <tr>
+                            <td><img src="{{asset(''.$cart['image'])}}" height="30px" width="30px"></td>
+                            <td>{{$cart['name']}}</td>
+                            <td><?php echo number_format($cart['price']).' VND'?></td>
+                            <td>{{$cart['quantity']}}</td>
+                            <td><?php echo number_format($cart['price'] * $cart['quantity']).' VND'?></td>
+                            <td>
+                                <a href="{{route('show_product',['id'=>$cart['id_product'],'id_categori'=>$cart['id_categori'],'id_address'=>$cart['id_address']])}}" class="btn btn-outline-success">Order more</a>
+                                <a href="" class="btn btn-outline-success">Order</a>
+                                <a href="{{route('cart.delete',['id'=>$cart['id']])}}" class="btn btn-outline-danger">Delete</a>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="6">
+                               <b>Chưa có sản phầm nào</b>
+                            </td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
+
 @endsection

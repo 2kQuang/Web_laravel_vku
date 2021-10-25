@@ -22,21 +22,23 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="body">Home</a></li>
-                    <li><a class="page-scroll" href="#about-section">About</a></li>
-                    <li><a class="page-scroll" href="#testimonial-section">Reviews</a></li>
-                    <li><a class="page-scroll" href="#portfolio-section">Order</a></li>
-                    <li><a class="page-scroll" href="#partners-section">Partners</a></li>
-                    <li><a class="page-scroll" href="#contact-section">Contact</a></li>
+                    <li><a class="page-scroll">&nbsp;&nbsp;&nbsp;&nbsp; </a></li>
+                    <li><a class="page-scroll">&nbsp;&nbsp;&nbsp;&nbsp; </a></li>
+                    <li><a class="page-scroll">&nbsp;&nbsp;&nbsp;&nbsp; </a></li>
+                    <li><a class="page-scroll">&nbsp;&nbsp;&nbsp;&nbsp; </a></li>
+                    <li><a class="page-scroll">&nbsp;&nbsp;&nbsp;&nbsp; </a></li>
+                    <li><a class="page-scroll">&nbsp;&nbsp;&nbsp;&nbsp; </a></li>
                     <li style="display: flex;">
 
                         <div class="user mt-2 ml-5">
-                            <a href="{{route('profile.show',['id'=>auth()->user()->id])}}" style="text-decoration: none">
-                                <img src="{{asset(auth()->user()->avatar)}}" >
+                            <a href="{{route('profile.show',['id'=>auth()->user()->id])}}"
+                                style="text-decoration: none">
+                                <img src="{{asset(auth()->user()->avatar)}}">
                             </a>
                         </div>
                         <div class="mt-3 ml-3 page-scroll" style="color: white;">
-                            <a href="{{route('profile.show',['id'=>auth()->user()->id])}}" style="text-decoration: none">
+                            <a href="{{route('profile.show',['id'=>auth()->user()->id])}}"
+                                style="text-decoration: none">
                                 <h3>{{Auth::user()->name}}</h3>
                             </a>
                         </div>
@@ -45,7 +47,7 @@
                             <li class="p-1">
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <button class="btn btn-outline-dark" type="submit">Log out</button>
+                                    <button class="btn btn-outline-dark" style="background-color: black !important;" type="submit">Log out</button>
                                 </form>
                             </li>
                         </ul>
