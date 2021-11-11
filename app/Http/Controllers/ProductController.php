@@ -24,7 +24,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-       
+        
+            $categories = Categories::all();
+            $products = Product::orderBy('id','Desc')->get();
+            return response()->view('user.home',['products'=>$products,'categories'=>$categories]);
+        
     }
 
     /**

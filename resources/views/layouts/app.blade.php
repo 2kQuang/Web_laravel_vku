@@ -47,7 +47,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-dark  shadow-sm">
             <div class="container ">
                 <a class="navbar-brand text-light" href="{{ url('/') }}">
-                    Quang_Dev
+                   Quang - Dev_Web
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

@@ -28,8 +28,14 @@
                     <li><a class="page-scroll" href="#portfolio-section">Order</a></li>
                     <li><a class="page-scroll" href="#partners-section">Partners</a></li>
                     <li><a class="page-scroll" href="#contact-section">Contact</a></li>
+                    @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
+                    @else
                     <li style="display: flex;">
-
                         <div class="user mt-2 ml-5">
                             <a href="{{route('profile.show',['id'=>auth()->user()->id])}}" style="text-decoration: none">
                                 <img src="{{asset(auth()->user()->avatar)}}" >
@@ -40,7 +46,6 @@
                                 <h3>{{Auth::user()->name}}</h3>
                             </a>
                         </div>
-
                         <ul class="list-unstyled mt-2 ml-3">
                             <li class="p-1">
                                 <form action="{{ route('logout') }}" method="POST">
@@ -50,6 +55,8 @@
                             </li>
                         </ul>
                     </li>
+                     @endguest
+                     
                 </ul>
 
             </div>

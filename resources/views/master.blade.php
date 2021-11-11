@@ -26,7 +26,7 @@
 </head>
 
 <body data-spy="scroll" data-target="#main-navbar">
-    <div class="page-loader"></div>
+    <!-- <div class="page-loader"></div> -->
     <div class="body">
         @include('_header')
         @include('_slide')

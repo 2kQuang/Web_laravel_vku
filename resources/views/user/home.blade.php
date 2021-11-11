@@ -35,10 +35,18 @@
                                     <div class="portfolio_single_content">
                                         <img src="{{$product['image']}}" width="300px" height="300px" alt="title" />
                                         <div>
+                                        @guest
+                                        @if (Route::has('login'))
+                                            <li class="nav-item">
+                                                <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                            </li>
+                                        @endif
+                                        @else
                                             <a href="{{route('show_product',['id'=>$product['id'],'id_categori'=>$product['id_categori'],'id_address'=>$product['id_address']])}}">
                                                 {{$product['name_product']}}
                                                 <p>See more</p>
                                             </a>
+                                            @endguest
                                         </div>
                                     </div>
                                 </div>

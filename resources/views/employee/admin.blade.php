@@ -31,7 +31,7 @@
             <td>{{$employee['address']}}</td>
             <td>{{$employee['email']}}</td>
             @if(auth()->user()->role_id == '1')
-            @if($employee['role_id'] != '1')
+            @if($employee['role_id'] != '2')
             <td>
                 <a href="{{route('employee.edit',['id'=>$employee['id'],'role_id'=>$employee['role_id']])}}" class="btn btn-success">Update</a>
                 <a href="{{route('employee.delete',['id'=>$employee['id']])}}" class="btn btn-danger">Delete</a>
