@@ -72,7 +72,6 @@
                             <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
                             <div class="col-md-6">
                                 <select id="role" class="form-control" name="role">
-                                    <option value="{{$role_id['id']}}">{{$role_id['name']}}</option>
                                     @forelse($roles as $role)
                                     <option value="{{$role['id']}}">{{$role['name']}}</option>
                                     @empty
